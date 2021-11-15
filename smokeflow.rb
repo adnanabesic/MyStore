@@ -76,7 +76,7 @@ describe 'Smoke Test Cases: ' do
         end
 
         it "verify product is added to cart" do
-            expect(@browser.h2.text).to eql('Product successfully added to your shopping cart')
+            expect(@browser.h2.text).to eql("Product successfully added to your shopping cart")
         end
     end
 
@@ -112,7 +112,7 @@ describe 'Smoke Test Cases: ' do
         end
 
         it "shows 'Order confirmation.' pop-up message" do
-            expect(@browser.h1(class: 'page-heading').text).to eql('ORDER CONFIRMATION')
+            expect(@browser.h1(class: 'page-heading').text).to eql("ORDER CONFIRMATION")
         end
     end
 end
