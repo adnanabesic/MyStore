@@ -1,18 +1,18 @@
 require 'rspec'
 require 'watir'
 
-describe "Automation Practice: " do
+describe 'Smoke Test Cases: ' do
     before :all do
         @browser = Watir::Browser.new :firefox
         @browser.window.maximize
-        @browser.goto("http://www.automationpractice.com/index.php")
+        @browser.goto('http://www.automationpractice.com/index.php')
     end
 
     after :all do
         @browser.close
     end
 
-    context "Login with valid credentials" do
+    context '1. Login with valid credentials' do
 
         it "clicks on Sign in button" do
             @browser.a(class: 'login').click
@@ -28,12 +28,12 @@ describe "Automation Practice: " do
             sleep 5
         end   
 
-        it "verifes is user logged in" do
-            expect(@browser.h1(class: 'page-heading').text).to eql("MY ACCOUNT")
+        it "verify is user logged in" do
+            expect(@browser.h1(class: 'page-heading').text).to eql('MY ACCOUNT')
         end
     end
 
-    context "Verify the Search option using a product/brand/category name" do
+    context '2. Verify the Search option using a product/brand/category name' do
         
         it "navigates to home page" do
             @browser.img(class: 'logo img-responsive').click
@@ -52,7 +52,7 @@ describe "Automation Practice: " do
         end
     end
 
-    context "Select Item and Add to Cart" do
+    context '3. Select Item and Add to Cart' do
 
         it "clicks on searched item" do
             @browser.img(title: 'Blouse').click
@@ -76,11 +76,11 @@ describe "Automation Practice: " do
         end
 
         it "verify product is added to cart" do
-            expect(@browser.h2.text).to eql("Product successfully added to your shopping cart")
+            expect(@browser.h2.text).to eql('Product successfully added to your shopping cart')
         end
     end
 
-    context "Verify the Procced to checkout functionality and Pay by bank wire button" do
+    context '4. Verify the Procced to checkout functionality and Pay by bank wire button' do
 
         it "click on procced to checkout button" do
             @browser.a(class: 'btn btn-default button button-medium').click
@@ -94,7 +94,7 @@ describe "Automation Practice: " do
             @browser.button(class: 'button btn btn-default button-medium').click
         end
 
-        it "select “I agree to the terms of service and will adhere to them unconditionally” checkbox" do
+        it "select 'I agree to the terms of service and will adhere to them unconditionally' checkbox" do
             @browser.input(id: 'cgv').click
         end
 
@@ -112,7 +112,7 @@ describe "Automation Practice: " do
         end
 
         it "shows 'Order confirmation.' pop-up message" do
-            expect(@browser.h1(class: 'page-heading').text).to eql("ORDER CONFIRMATION")
+            expect(@browser.h1(class: 'page-heading').text).to eql('ORDER CONFIRMATION')
         end
     end
 end
